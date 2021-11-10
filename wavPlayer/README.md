@@ -14,12 +14,13 @@ Using CircuitPython on a Raspberry Pi Pico we can play short clips of sounds.To 
 
 - The Raspberry Pico has 2MB of on-board Flash memory. Sound files must be under 2MB
 - CircuitPython supports mono or stereo, at 22 KHz sample rate (or less) and 16-bit WAV format 
-- I used sox and ffmpeg to prepare my sound file
+- I used sox and ffmpeg to prepare modifications of my sound file
 
 ```bash
+#Install necessary software in linux
 sudo apt-get install mediainfo ffmpeg sox
 
-#verify sound file wih mediainfo
+#verify sound file properties wih mediainfo
 mediainfo file.wav
 
 #example of augmenting volume by 10dB with ffmpeg
@@ -29,10 +30,7 @@ ffmpeg -i input.wav -filter:a "volume=10dB" output.wav
 sox file.wav -b 16 output.wav
 ```
 
-
 ### Hookup guide:
-
-__ALWAYS ADD A RESISTOR FOR THE LED!__ (220 or 330 ohm for example)
 
 ![schematic](circuit.jpg)
 
